@@ -26,7 +26,7 @@
     <string name="setup_current_date">Dáta reatha</string>
     <string name="setup_current_time">Am reatha</string>
     <string name="intro_restore_title">Athchóirigh aipeanna agus sonraí</string>
-    <string name="intro_restore_subtitle">Má tá cúltaca Seedvault agat ó <xliff:g id="name" example="LineageOS">%s</xliff:g> nó ó aon OS eile, is féidir leat é a aischur anseo.</string>
+    <string name="intro_restore_subtitle">Má tá cúltaca Seedvault agat ó <xliff:g id="name" example="WitAqua">%s</xliff:g> nó ó aon OS eile, is féidir leat é a aischur anseo.</string>
     <string name="intro_restore_button">Athchóirigh ó chúltaca</string>
     <string name="setup_location">Seirbhísí suímh</string>
     <string name="location_access_summary"><b>Ceadaigh d’aipeanna a d’iarr do chead</b> do chuid faisnéise suímh a úsáid. Seans go n-áireofaí anseo do shuíomh reatha agus láithreacha san am a chuaigh thart.</string>
