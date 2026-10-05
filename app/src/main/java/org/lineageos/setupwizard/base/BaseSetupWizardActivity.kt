@@ -12,8 +12,10 @@ import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
@@ -22,6 +24,7 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.setupcompat.template.FooterBarMixin
 import com.google.android.setupcompat.template.FooterButton
+import com.google.android.setupdesign.template.HeaderMixin
 import com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP
 import com.google.android.setupcompat.util.WizardManagerHelper
 import com.google.android.setupdesign.GlifLayout
@@ -245,7 +248,8 @@ abstract class BaseSetupWizardActivity : AppCompatActivity() {
         if (layoutResId != -1) {
             setContentView(layoutResId)
         }
-        if (findViewById<View>(R.id.setup_wizard_layout) == null) {
+        val layoutRoot = findViewById<View>(R.id.setup_wizard_layout)
+        if (layoutRoot == null) {
             return
         }
         if (SetupWizardUtils.hasLeanback(this)) {
@@ -259,6 +263,13 @@ abstract class BaseSetupWizardActivity : AppCompatActivity() {
         }
         if (iconResId != -1) {
             getDrawable(iconResId)?.mutate()?.let { template.setIcon(it) }
+        }
+
+        if (layoutRoot is GlifLayout) {
+            val headerMixin = layoutRoot.getMixin(HeaderMixin::class.java)
+            val titleView: TextView? = headerMixin?.textView
+            titleView?.gravity = Gravity.CENTER
+            titleView?.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
     }
 
