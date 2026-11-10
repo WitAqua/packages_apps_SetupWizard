@@ -3,20 +3,35 @@
      SPDX-FileCopyrightText: The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
-<androidx.core.view.insets.ProtectionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/sud_layout_protection"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.setupcompat.view.StatusBarBackgroundLayout
-        android:id="@+id/suc_layout_status"
+    <!-- Continues the boot animation (starts on black with the logo where the
+         boot animation had it): covers the whole window with centerCrop.
+         Loaded and started by org.witaqua.setupwizard.WelcomeBackground. -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/welcome_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="?attr/sudClipChildren"
-        android:clipToPadding="?attr/sudClipToPadding"
-        android:filterTouchesWhenObscured="true">
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop" />
 
-        <include layout="@layout/sud_glif_expressive_template_content" />
+    <androidx.core.view.insets.ProtectionLayout
+        android:id="@+id/sud_layout_protection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    </com.google.android.setupcompat.view.StatusBarBackgroundLayout>
-</androidx.core.view.insets.ProtectionLayout>
+        <com.google.android.setupcompat.view.StatusBarBackgroundLayout
+            android:id="@+id/suc_layout_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="?attr/sudClipChildren"
+            android:clipToPadding="?attr/sudClipToPadding"
+            android:filterTouchesWhenObscured="true">
+
+            <include layout="@layout/sud_glif_expressive_template_content" />
+
+        </com.google.android.setupcompat.view.StatusBarBackgroundLayout>
+    </androidx.core.view.insets.ProtectionLayout>
+</FrameLayout>

@@ -24,6 +24,7 @@ import org.lineageos.setupwizard.base.GlifTemplate
 import org.lineageos.setupwizard.base.SubBaseActivity
 import org.lineageos.setupwizard.system.DeviceInfoActivity
 import org.lineageos.setupwizard.util.SetupWizardUtils
+import org.witaqua.setupwizard.WelcomeBackground
 
 class WelcomeActivity : SubBaseActivity() {
 
@@ -36,6 +37,7 @@ class WelcomeActivity : SubBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WelcomeBackground.attach(this, savedInstanceState)
         onSetupStart()
         SystemBarHelper.setBackButtonVisible(window, false)
 
